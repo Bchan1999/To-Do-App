@@ -1,4 +1,4 @@
-package com.to_do_app.To_Do.App;
+package com.brandon.todo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
