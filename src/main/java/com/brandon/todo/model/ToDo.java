@@ -13,13 +13,13 @@ public class ToDo {
     @GeneratedValue Long id;
     private String header;
     private String description;
-    private Date dateCreated;
-    private Date dateDue;
+    private String dateCreated;
+    private String dateDue;
 
     public ToDo() {
     }
 
-    public ToDo(Date dateDue, Date dateCreated, String description, String header) {
+    public ToDo(String dateDue, String dateCreated, String description, String header) {
         this.dateDue = dateDue;
         this.dateCreated = dateCreated;
         this.description = description;
@@ -50,19 +50,19 @@ public class ToDo {
         this.description = description;
     }
 
-    public Date getDateCreated() {
+    public String getDateCreated() {
         return dateCreated;
     }
 
-    public void setDateCreated(Date dateCreated) {
+    public void setDateCreated(String dateCreated) {
         this.dateCreated = dateCreated;
     }
 
-    public Date getDateDue() {
+    public String getDateDue() {
         return dateDue;
     }
 
-    public void setDateDue(Date dateDue) {
+    public void setDateDue(String dateDue) {
         this.dateDue = dateDue;
     }
 }

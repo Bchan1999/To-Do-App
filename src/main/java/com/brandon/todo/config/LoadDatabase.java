@@ -19,8 +19,8 @@ public class LoadDatabase {
     CommandLineRunner initDatabase(ToDoRepo toDoRepo){
         Date d1 = new Date(2000, 11, 21);
         return args -> {
-            log.info("Preloading " + toDoRepo.save(new ToDo(d1, d1, "test", "Test Header")));
-            log.info("Preloading " + toDoRepo.save(new ToDo(d1, d1, "Launch game", "Game Shittt")));
+            log.info("Preloading " + toDoRepo.save(new ToDo("23", "23", "test", "Test Header")));
+            log.info("Preloading " + toDoRepo.save(new ToDo("23", "23", "Launch game", "Game Shittt")));
         };
     }
 }
