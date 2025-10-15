@@ -19,11 +19,13 @@ public class Endpoint {
     }
 
     //routing info
+    @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping("/")
     String home() {
         return "Hello World";
     }
 
+    @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/todo")
     List<ToDo> all(){
         return repo.findAll();
