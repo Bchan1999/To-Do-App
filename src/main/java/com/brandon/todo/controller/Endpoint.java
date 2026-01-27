@@ -5,7 +5,6 @@ import com.brandon.todo.model.ToDo;
 import com.brandon.todo.repository.ToDoRepo;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.PreparedStatement;
 import java.util.List;
 
 //provides hints to people reading code, stereotype annotation

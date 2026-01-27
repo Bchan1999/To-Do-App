@@ -4,13 +4,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
-import java.util.Date;
-
 @Entity
 public class ToDo {
 
-    private @Id
-    @GeneratedValue Long id;
+    @Id
+    @GeneratedValue
+    private Long id;
     private String header;
     private String description;
     private String dateCreated;
@@ -19,7 +18,8 @@ public class ToDo {
     public ToDo() {
     }
 
-    public ToDo(String dateDue, String dateCreated, String description, String header) {
+    public ToDo(Long id, String dateDue, String dateCreated, String description, String header) {
+        this.id = id;
         this.dateDue = dateDue;
         this.dateCreated = dateCreated;
         this.description = description;
