@@ -4,21 +4,22 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
+//This is a JPA entity
+//This is what H2 will use to create a table from
 @Entity
 public class ToDo {
-
     @Id
     @GeneratedValue
     private Long id;
-    private String header;
-    private String description;
     private String dateCreated;
     private String dateDue;
+    private String description;
+    private String header;
 
     public ToDo() {
     }
 
-    public ToDo(Long id, String dateDue, String dateCreated, String description, String header) {
+    public ToDo(Long id,String dateCreated, String dateDue, String description, String header) {
         this.id = id;
         this.dateDue = dateDue;
         this.dateCreated = dateCreated;

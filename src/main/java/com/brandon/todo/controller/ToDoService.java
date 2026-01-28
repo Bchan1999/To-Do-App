@@ -9,39 +9,39 @@ import java.util.List;
 
 //provides hints to people reading code, stereotype annotation
 @RestController
-public class Endpoint {
+public class ToDoService {
 
     private final ToDoRepo repo;
 
-    public Endpoint(ToDoRepo repo) {
+    public ToDoService(ToDoRepo repo) {
         this.repo = repo;
     }
 
     //routing info
     @CrossOrigin(origins = "http://localhost:3000")
     @RequestMapping("/")
-    String home() {
+    public String home() {
         return "Hello World";
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/todo")
-    List<ToDo> all(){
+    public List<ToDo> all(){
         return repo.findAll();
     }
 
     @GetMapping("/todo/{id}")
-    ToDo getItem(@PathVariable Long id) {
+    public ToDo getItem(@PathVariable Long id) {
         return repo.findById(id).orElseThrow(() -> new ToDoNotFoundException(id));
     }
 
     @PostMapping("/todo")
-    ToDo newTodo(@RequestBody ToDo newTodo) {
+    public ToDo newTodo(@RequestBody ToDo newTodo) {
         return repo.save(newTodo);
     }
 
     @PutMapping("/todo/{id}")
-    ToDo editHeader(@RequestBody String newHeader, @PathVariable Long id) {
+    public ToDo editHeader(@RequestBody String newHeader, @PathVariable Long id) {
        return repo.findById(id)
                .map(todo -> {
                    todo.setHeader(newHeader);
@@ -51,7 +51,7 @@ public class Endpoint {
     }
 
     @DeleteMapping("/todo/{id}")
-    void deleteTodo(@PathVariable Long id){
+    public void deleteTodo(@PathVariable Long id){
         repo.deleteById(id);
     }
 }
