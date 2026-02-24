@@ -2,6 +2,7 @@ package com.brandon.todo.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 //This is a JPA entity
@@ -9,7 +10,7 @@ import jakarta.persistence.Id;
 @Entity
 public class ToDo {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String dateCreated;
     private String dateDue;

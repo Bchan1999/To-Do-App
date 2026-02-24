@@ -1,1 +1,0 @@
-insert into to_do values(1, 'Jan-27-2025','Feb-8-2025',  'Implement to-do app to learn more about Springboot', 'Make To-Do App')

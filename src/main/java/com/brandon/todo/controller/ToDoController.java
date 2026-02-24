@@ -1,20 +1,25 @@
 package com.brandon.todo.controller;
 
 import com.brandon.todo.excpetion.ToDoNotFoundException;
+import com.brandon.todo.model.CreateTodoRequest;
 import com.brandon.todo.model.ToDo;
 import com.brandon.todo.repository.ToDoRepo;
+import com.brandon.todo.service.TodoApplicationService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 //provides hints to people reading code, stereotype annotation
 @RestController
-public class ToDoService {
+public class ToDoController {
 
     private final ToDoRepo repo;
 
-    public ToDoService(ToDoRepo repo) {
+    private final TodoApplicationService todoApplicationService;
+
+    public ToDoController(ToDoRepo repo, TodoApplicationService todoApplicationService) {
         this.repo = repo;
+        this.todoApplicationService = todoApplicationService;
     }
 
     //routing info
@@ -36,8 +41,8 @@ public class ToDoService {
     }
 
     @PostMapping("/todo")
-    public ToDo newTodo(@RequestBody ToDo newTodo) {
-        return repo.save(newTodo);
+    public ToDo newTodo(@RequestBody CreateTodoRequest newTodo) {
+        return todoApplicationService.createTodo(newTodo);
     }
 
     @PutMapping("/todo/{id}")
