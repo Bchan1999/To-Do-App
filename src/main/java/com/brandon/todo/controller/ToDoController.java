@@ -2,6 +2,7 @@ package com.brandon.todo.controller;
 
 import com.brandon.todo.excpetion.ToDoNotFoundException;
 import com.brandon.todo.model.CreateTodoRequest;
+import com.brandon.todo.model.UpdateTodoRequest;
 import com.brandon.todo.model.ToDo;
 import com.brandon.todo.repository.ToDoRepo;
 import com.brandon.todo.service.TodoApplicationService;
@@ -46,14 +47,7 @@ public class ToDoController {
     }
 
     @PutMapping("/todo/{id}")
-    public ToDo editHeader(@RequestBody String newHeader, @PathVariable Long id) {
-       return repo.findById(id)
-               .map(todo -> {
-                   todo.setHeader(newHeader);
-                   return repo.save(todo);
-               })
-               .orElseThrow(() -> new ToDoNotFoundException(id));
-    }
+    public ToDo editTodoItem(@PathVariable Long id, @RequestBody UpdateTodoRequest updateTodoRequest) { return todoApplicationService.updateTodo(id, updateTodoRequest);}
 
     @DeleteMapping("/todo/{id}")
     public void deleteTodo(@PathVariable Long id){
